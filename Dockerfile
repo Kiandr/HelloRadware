@@ -1,44 +1,17 @@
-# Test web-app to use with Pluralsight courses and Docker Deep Dive book
-# Linux x64
-FROM alpine
+# base image
+FROM node:9.6.1
 
-LABEL maintainer="info@kian.co"
+# set working directory
+RUN mkdir /usr/src/app
+WORKDIR /usr/src/app
 
-# Install Node and NPM
-RUN apk add --update nodejs nodejs-npm
+# add `/usr/src/app/node_modules/.bin` to $PATH
+ENV PATH /usr/src/app/node_modules/.bin:$PATH
 
-RUN npm run build --production
+# install and cache app dependencies
+COPY package.json /usr/src/app/package.json
+RUN npm install --silent
+RUN npm install react-scripts@1.1.1 -g --silent
 
-# Copy app to /src
-COPY . /src
-
-WORKDIR /src
-
-# Install dependencies
-RUN  npm install
-
-EXPOSE 8080
-
-ENTRYPOINT ["node", "./app.js"]
-
-# You should always specify a full version here to ensure all of your developers
-# are running the same version of Node.
-#FROM node:7.8.0
-
-# The base node image sets a very verbose log level.
-#ENV NPM_CONFIG_LOGLEVEL warn
-
-# Copy all local files into the image.
-#COPY . .
-
-# Build for production.
-#RUN npm run build --production
-
-# Install `serve` to run the application.
-RUN npm install -g serve
-
-# Set the command to start the node server.
-CMD serve -s build
-
-# Tell Docker about the port we'll run on.
-EXPOSE 5000
+# start app
+CMD ["npm", "start"]

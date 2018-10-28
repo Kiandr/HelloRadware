@@ -12,5 +12,5 @@ services:
       - '/usr/src/app/node_modules'
     ports:
       - '80:80'
-    environment:
-      - NODE_ENV=development
+   
+   

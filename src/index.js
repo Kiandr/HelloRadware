@@ -8,21 +8,22 @@ import './bootstrap.min.css';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(<App />, document.getElementById('root'));
-//ReactDOM.render(<Radware />, document.getElementById('root'));
+//ReactDOM.render(<Radware />, document.getElementById('Kian'));
 
 function showAlert(onSuccess, onFail) {
     // Get the current 'global' time from an API using Promise
-    return new Promise((resolve, reject) => {setTimeout(()=> {resolve('show');}, 100);
+    return new Promise((resolve, reject) => {setTimeout(()=> {resolve('show');}, 1000);
     })
   }
   showAlert()
     .then(currentTime => showAlert())
     .then(currentTime => {
-        if(currentTime ==='show')
-      console.log('The current time is: ' + currentTime + new Date());
-      var t = new Radware(currentTime);
-
-      
+    if(currentTime ==='show'){
+      ReactDOM.render(<Radware />, document.getElementById('Kian'));
+      //var r = new Radware();  
+      console.log("Opening");
+//      r.openModal();
+    }
       return true;
     })
     .catch(err => console.log('There was an error:' + err))

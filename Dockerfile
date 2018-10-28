@@ -10,7 +10,7 @@ ENV PATH /usr/src/app/node_modules/.bin:$PATH
 
 # install and cache app dependencies
 COPY package.json /usr/src/app/package.json
-RUN npm install react-modal
+RUN npm i --save react-modal
 RUN npm install --silent
 RUN npm install react-scripts@2.0.5 -g --silent
 # start app

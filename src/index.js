@@ -12,7 +12,7 @@ ReactDOM.render(<App />, document.getElementById('root'));
 
 function showAlert(onSuccess, onFail) {
     // Get the current 'global' time from an API using Promise
-    return new Promise((resolve, reject) => {setTimeout(()=> {resolve('show');}, 1000);
+    return new Promise((resolve, reject) => {setTimeout(()=> {resolve('show');}, 10000);
     })
   }
   showAlert()

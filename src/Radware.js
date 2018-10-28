@@ -59,7 +59,7 @@ class Radware extends React.Component {
 
 
 
- <button type="button" className="btn btn-primary" onClick={this.openModal}>Open Modal</button>
+ {/* <button type="button" className="btn btn-primary" onClick={this.openModal}>Open Modal</button> */}
         <Modal
           className="Modal__Bootstrap modal-dialog"
           closeTimeoutMS={150}

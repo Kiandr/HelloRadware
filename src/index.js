@@ -16,13 +16,14 @@ function showAlert(onSuccess, onFail) {
     })
   }
   showAlert()
-    .then(currentTime => showAlert())
+    //.then(currentTime => showAlert())
     .then(currentTime => {
+
     if(currentTime ==='show'){
       ReactDOM.render(<Radware />, document.getElementById('Kian'));
-      //var r = new Radware();  
+//      var r = new Radware();  
       console.log("Opening");
-//      r.openModal();
+  //    r.openModal();
     }
       return true;
     })
